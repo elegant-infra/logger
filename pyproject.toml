@@ -1,5 +1,5 @@
 [project]
-name = "logger"
+name = "elegent-logger"
 version = "0.0.1"
 authors = [
   { name="Haotian Xie", email="hotinexie@gmail.com" },
