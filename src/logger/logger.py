@@ -20,7 +20,13 @@ class Logger:
         self.logger.setLevel(level or get_log_level())
 
         self._setup_handlers(
-            path, level, stdout_level, disable_stdout, custom_stdout_formatter, custom_file_formatter, handler_filter
+            path,
+            level,
+            stdout_level,
+            disable_stdout,
+            custom_stdout_formatter,
+            custom_file_formatter,
+            handler_filter,
         )
         self.logger.propagate = propagate
 
@@ -37,10 +43,18 @@ class Logger:
         datefmt = "%Y-%m-%d %H:%M:%S"
         handlers = []
         if not disable_stdout:
-            handlers.append(create_stream_handler(stdout_level, datefmt, custom_stdout_formatter, handler_filter))
+            handlers.append(
+                create_stream_handler(
+                    stdout_level, datefmt, custom_stdout_formatter, handler_filter
+                )
+            )
 
         if path is not None:
-            handlers.append(create_file_handler(path, level, datefmt, custom_file_formatter, handler_filter))
+            handlers.append(
+                create_file_handler(
+                    path, level, datefmt, custom_file_formatter, handler_filter
+                )
+            )
 
         self.logger.handlers.clear()
         self.logger.handlers.extend(handlers)
